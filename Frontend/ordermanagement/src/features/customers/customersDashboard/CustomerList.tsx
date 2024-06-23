@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react'
+import React, { useState } from 'react'
 import { Address, Customer } from '../../../graphql/generated/schema'
-import {AgGridReact} from 'ag-grid-react'
+import OmGrid from '../../../components/elements/OmGrid'
 
 interface CustomerListProps {
     customers: Customer[]
@@ -44,18 +44,11 @@ const CustomerList = ({customers}: CustomerListProps) => {
       },
     ]);
 
-    const defaultColDef = useMemo(() => ({
-        sortable: true,
-        filter: true,
-        resizable: true
-    }), [])
-
     return (
         <div style={{height: 600, width: "100%"}}>
-            <AgGridReact
+            <OmGrid
                 rowData={customers}
                 columnDefs={columnDefs}
-                defaultColDef={defaultColDef}
             />
         </div>
     )
