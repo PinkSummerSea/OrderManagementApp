@@ -4,14 +4,16 @@ import { Grid, Typography } from '@mui/material';
 import CustomerList from './CustomerList';
 import 'ag-grid-community/styles/ag-grid.css';
 import "ag-grid-community/styles/ag-theme-alpine.css";
+import OmLoading from '../../../components/elements/OmLoading';
+import OmAlert from '../../../components/elements/OmAlert';
 
 const CustomersDashboard = () => {
     const {data: customersData, loading, error } = useGetCustomersQuery();
     if(loading){
-        return <div>loading...</div>
+        return <OmLoading />
     }
     if(error||!customersData){
-        return <div>error...</div>
+        return <OmAlert message='error happened' />
     }
 
     const customers = customersData.customers as Customer[]
