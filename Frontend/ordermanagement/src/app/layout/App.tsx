@@ -4,6 +4,7 @@ import './styles.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import Layout from './Layout';
 import HomePage from '../../features/home/HomePage';
+import OrdersDashboard from '../../features/orders/ordersDashboard/OrdersDashboard';
 
 const client = new ApolloClient({
   cache: new InMemoryCache({
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="customers" element={<CustomersDashboard />} />
+            <Route path="orders" element={<OrdersDashboard />} />
           </Route>
         </Routes>
       </BrowserRouter>
